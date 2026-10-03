@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %}
+About | Biswas Parajuli
+{% endblock %}
+
+{% block content %}
+
+
+<section class="inner-page">
+  <div class="container">
+    <!-- TITLE -->
+    <div class="page-title glass">
+      <span> ABOUT ME </span>
+      <h1> About Me </h1>
+      <p>
+        Get to know me, my skills and my journey
+        as a developer.
+      </p>
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <div class="row g-4 mt-2">
+      <div class="col-lg-7">
+        <div class="content-card glass">
+          <div class="card-label"> WHO I AM </div>
+          <h2> I build things for the web.</h2>
+          <p>
+            I'm Biswas Parajuli, a Full Stack
+            Developer interested in creating
+            modern and useful web applications.
+          </p>
+          <p>
+            My main backend interest is Python
+            and Django, while I also work with
+            frontend technologies such as React,
+            HTML, CSS and JavaScript.
+          </p>
+          <p>
+            I enjoy learning new technologies,
+            solving problems and turning ideas
+            into working applications.
+          </p>
+          <a href="{% url 'contact' %}" class="btn btn-primary-glass mt-3">
+            <i class="bi bi-chat"></i>
+            Let's Talk
+          </a>
+        </div>
+      </div>
+
+      <!-- INFO -->
+      <div class="col-lg-5">
+        <div class="content-card glass">
+          <div class="card-label"> QUICK INFO </div>
+          <div class="info-list">
+            <div class="info-item">
+              <i class="bi bi-person"></i>
+              <div>
+                <small> Name </small>
+                <strong> Biswas Parajuli </strong>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="bi bi-code-slash"></i>
+              <div>
+                <small> Role </small>
+                <strong> Full Stack Developer </strong>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="bi bi-terminal"></i>
+              <div>
+                <small> Backend </small>
+                <strong> Python / Django</strong>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="bi bi-window"></i>
+              <div>
+                <small> Frontend </small>
+                <strong> React / HTML / CSS / JS </strong>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="bi bi-database"></i>
+              <div>
+                <small> Database </small>
+                <strong> MySQL / SQLite </strong>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="content-card glass skills-section">
+      <div class="card-label">
+        TECHNOLOGIES
+      </div>
+      <h2>
+        My Technical Skills
+      </h2>
+      <div class="technology-grid">
+        <div class="technology">
+          <i class="bi bi-filetype-py"></i>
+          Python
+        </div>
+        <div class="technology">
+          <i class="bi bi-server"></i>
+          Django
+        </div>
+        <div class="technology">
+          <i class="bi bi-filetype-js"></i>
+          JavaScript
+        </div>
+        <div class="technology">
+          <i class="bi bi-bootstrap"></i>
+          Bootstrap
+        </div>
+        <div class="technology">
+          <i class="bi bi-code-square"></i>
+          React
+        </div>
+        <div class="technology">
+          <i class="bi bi-filetype-html"></i>
+          HTML
+        </div>
+        <div class="technology">
+          <i class="bi bi-filetype-css"></i>
+          CSS
+        </div>
+        <div class="technology">
+          <i class="bi bi-database"></i>
+          MySQL
+        </div>
+        <div class="technology">
+          <i class="bi bi-filetype-php"></i>
+          PHP
+        </div>
+        <div class="technology">
+          <i class="bi bi-git"></i>
+          Git
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

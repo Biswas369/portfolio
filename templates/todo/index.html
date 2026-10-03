@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}
+Todo App
+{% endblock %}
+
+
+{% block content %}
+
+<div class="todo-page">
+
+  <!-- PAGE HEADER -->
+
+  <div class="todo-header">
+
+    <div>
+      <span class="todo-badge">
+        <i class="bi bi-check2-circle"></i>
+        Todo App
+      </span>
+      <h1> My Tasks </h1>
+      <p> Keep your daily tasks simple and organized.</p>
+    </div>
+
+
+    <!-- ADD BUTTON -->
+    <div class="d-flex justify-content-end">
+      <a href="{% url 'todo_add' %}" class="todo-add-btn">
+        <i class="bi bi-plus-lg"></i>
+        Add Todo
+      </a>
+    </div>
+
+  </div>
+
+  <!-- TODO LIST -->
+
+  <div class="todo-section-title">
+    <h2> Your Todos </h2>
+
+    <span>
+      {{ todos|length }} task{{ todos|length|pluralize }}
+    </span>
+
+  </div>
+
+
+  <div class="todo-list">
+
+    {% for todo in todos %}
+
+    <div class="glass todo-card">
+      <div class="todo-left">
+        <!-- COMPLETE BUTTON -->
+
+        <a href="{% url 'todo_complete' todo.id %}" class="todo-check {% if todo.complete %}completed{% endif %}"
+          title="Mark complete" onclick="completeTodo(event, this)">
+
+          {% if todo.complete %}
+
+          <i class="bi bi-check-lg"></i>
+
+          {% endif %}
+
+        </a>
+
+
+        <div class="todo-content">
+          <h3 class="{% if todo.complete %}todo-done{% endif %}">
+            {{ todo.title }}
+          </h3>
+          <small>
+            <i class="bi bi-clock"></i>
+            {{ todo.created_at|date:"M d, Y • h:i A" }}
+          </small>
+        </div>
+      </div>
+
+
+      <!-- ACTIONS -->
+
+      <div class="todo-actions">
+        <a href="{% url 'todo_edit' todo.id %}" class="todo-action edit" title="Edit">
+          <i class="bi bi-pencil"></i>
+        </a>
+
+        <a href="{% url 'todo_delete' todo.id %}" class="todo-action delete" title="Delete"
+          onclick="return confirm('Are you sure you want to delete this todo?')">
+          <i class="bi bi-trash3"></i>
+        </a>
+      </div>
+    </div>
+
+    {% empty %}
+
+    <!-- EMPTY -->
+
+    <div class="glass todo-empty">
+      <div class="todo-empty-icon">
+        <i class="bi bi-clipboard-check"></i>
+      </div>
+      <h3> No Todos Yet </h3>
+      <p> Add your first task above and start getting things done. </p>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+<script>
+  function completeTodo(event, button) {
+
+    event.preventDefault();
+
+    fetch(button.href)
+      .then(response => response.json())
+      .then(data => {
+
+        if (data.success) {
+
+          const card = button.closest('.todo-card');
+          const title = card.querySelector('.todo-content h3');
+
+          if (data.complete) {
+
+            // Add completed class
+            button.classList.add('completed');
+
+            // Add tick
+            button.innerHTML = '<i class="bi bi-check-lg"></i>';
+
+            // Mark title as done
+            title.classList.add('todo-done');
+
+          } else {
+
+            // Remove completed class
+            button.classList.remove('completed');
+
+            // Remove tick
+            button.innerHTML = '';
+
+            // Remove done style
+            title.classList.remove('todo-done');
+
+          }
+
+        }
+
+      });
+
+  }
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Todo
+{% endblock %}
+
+
+{% block content %}
+
+<div class="todo-page">
+
+  <div class="todo-header">
+
+    <div>
+      <span class="todo-badge">
+        <i class="bi bi-plus-circle"></i>
+        Todo App
+      </span>
+
+      <h1>Add Todo</h1>
+
+      <p>
+        Create a new task for your todo list.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- ADD TODO FORM -->
+
+  <div class="glass todo-add-card">
+
+    <div class="todo-form-title">
+      <i class="bi bi-plus-circle"></i>
+      Add New Todo
+    </div>
+
+
+    <form method="POST" action="{% url 'todo_add' %}">
+
+      {% csrf_token %}
+
+      <div class="todo-input-group">
+
+        <input type="text" name="title" placeholder="What do you need to do?" required autofocus>
+
+
+        <button type="submit" class="todo-add-btn">
+
+          <i class="bi bi-plus-lg"></i>
+
+          Add Todo
+
+        </button>
+
+
+        <a href="{% url 'todo' %}" class="todo-cancel-btn">
+
+          Cancel
+
+        </a>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

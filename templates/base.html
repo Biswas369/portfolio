@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}MyWebsite{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+  {% include "header.html" %}
+
+  <main class="container">
+
+    {% block content %}
+    {% endblock %}
+
+  </main>
+
+  {% include "footer.html" %}
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+
+  <!-- Theme + Menu JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const themeBtn = document.getElementById("themeBtn");
+      const themeIcon = document.getElementById("themeIcon");
+      const savedTheme = localStorage.getItem("portfolio-theme");
+
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
+      function updateThemeIcon() {
+        if (!themeIcon) {
+          return;
+        }
+
+        if (document.body.classList.contains("dark")) {
+          themeIcon.innerHTML =
+            '<i class="bi bi-moon-fill"></i>';
+        } else {
+          themeIcon.innerHTML =
+            '<i class="bi bi-sun-fill"></i>';
+        }
+      }
+      updateThemeIcon();
+      if (themeBtn) {
+        themeBtn.addEventListener("click", function () {
+          document.body.classList.toggle("dark");
+          if (document.body.classList.contains("dark")) {
+            localStorage.setItem(
+              "portfolio-theme",
+              "dark"
+            );
+          } else {
+            localStorage.setItem(
+              "portfolio-theme",
+              "light"
+            );
+          }
+          updateThemeIcon();
+        });
+      }
+
+      const menuBtn = document.getElementById("menuBtn");
+      const navMenu = document.getElementById("navMenu");
+      if (menuBtn && navMenu) {
+        menuBtn.addEventListener("click", function () {
+          navMenu.classList.toggle("show");
+        });
+      }
+    });
+  </script>
+</body>
+</html>

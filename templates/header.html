@@ -1,0 +1,43 @@
+<header class="navbar-wrapper">
+
+  <div class="container">
+    <nav class="glass navbar-box">
+
+      <a href="{% url 'home' %}" class="logo">
+        <span class="logo-icon">B</span>
+        <span> Biswas </span>
+      </a>
+
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+          Home
+        </a>
+        <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+          About
+        </a>
+        <a href="{% url 'projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">
+          Projects
+        </a>
+        <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+          Contact
+        </a>
+
+      </nav>
+
+
+      <div class="nav-actions">
+        <button type="button" class="theme-btn" id="themeBtn" aria-label="Change theme">
+          <span class="theme-circle" id="themeIcon">
+            <i class="bi bi-sun-fill"></i>
+          </span>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" id="menuBtn" aria-label="Open menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+      
+    </nav>
+  </div>
+</header>
