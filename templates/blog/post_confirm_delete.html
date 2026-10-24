@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Blog Post{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <a href="{% url 'blog:post_list' %}">Blog App</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current">Delete Post</span>
+  </nav>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="app-page">
+
+  <div class="app-header">
+    <div>
+      <span class="app-badge">
+        <i class="bi bi-trash3"></i>
+        Blog App
+      </span>
+      <h1>Delete Blog Post</h1>
+      <p>This action cannot be undone.</p>
+    </div>
+  </div>
+
+  <div class="glass todo-add-card app-form-card">
+    <p style="color: var(--card-text); margin-bottom: 20px;">
+      Are you sure you want to delete
+      <strong style="color: var(--heading);">{{ post.title }}</strong>?
+    </p>
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="app-form-actions">
+        <button type="submit" class="app-btn-danger">
+          <i class="bi bi-trash3"></i>
+          Yes, Delete
+        </button>
+        <a href="{% url 'blog:post_detail' post.pk %}" class="todo-cancel-btn">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

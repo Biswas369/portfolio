@@ -4,6 +4,17 @@
 About | Biswas Parajuli
 {% endblock %}
 
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current">About</span>
+  </nav>
+</div>
+{% endblock %}
+
+
 {% block content %}
 
 
@@ -11,12 +22,12 @@ About | Biswas Parajuli
   <div class="container">
     <!-- TITLE -->
     <div class="page-title glass">
-      <span> ABOUT ME </span>
-      <h1> About Me </h1>
-      <p>
-        Get to know me, my skills and my journey
-        as a developer.
-      </p>
+      <h1>
+
+        <spanp class="animated-name " id="animated-name">About Me</span>
+      </h1>
+      <span class="typing-text" data-text="Get to know me, my skills and my journey
+        as a developer."></span><span class="typing-cursor">|</span>
     </div>
 
 
@@ -26,7 +37,10 @@ About | Biswas Parajuli
       <div class="col-lg-7">
         <div class="content-card glass">
           <div class="card-label"> WHO I AM </div>
-          <h2> I build things for the web.</h2>
+          <h2>
+            <span class="typing-text" data-text="I build things for the web."></span><span
+              class="typing-cursor">|</span>
+          </h2>
           <p>
             I'm Biswas Parajuli, a Full Stack
             Developer interested in creating
@@ -43,7 +57,7 @@ About | Biswas Parajuli
             solving problems and turning ideas
             into working applications.
           </p>
-          <a href="{% url 'contact' %}" class="btn btn-primary-glass mt-3">
+          <a href="{% url 'contact' %}" class="btn btn-blink mt-3">
             <i class="bi bi-chat"></i>
             Let's Talk
           </a>
@@ -105,8 +119,8 @@ About | Biswas Parajuli
       <h2>
         My Technical Skills
       </h2>
-      <div class="technology-grid">
-        <div class="technology">
+      <div class="technology-grid ">
+        <div class=" technology">
           <i class="bi bi-filetype-py"></i>
           Python
         </div>
@@ -151,4 +165,5 @@ About | Biswas Parajuli
   </div>
 </section>
 
+<script src="../../static/js/writing.js"></script>
 {% endblock %}

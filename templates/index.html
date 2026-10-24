@@ -6,6 +6,15 @@ Home | Biswas Parajuli
 {% endblock %}
 
 
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <span class="crumb-current"><i class="bi bi-house-door"></i> Home</span>
+  </nav>
+</div>
+{% endblock %}
+
+
 {% block content %}
 
 
@@ -21,7 +30,11 @@ Home | Biswas Parajuli
             Available for work
           </div>
 
-          <h1> Hi, I'm <span class="gradient-text"> Biswas Parajuli </span> </h1>
+          <h1>
+            Hi, I'm
+            <span class="typing-text" data-text="Biswas Parajuli"></span><span class="typing-cursor">|</span>
+          </h1>
+
           <h2> Full Stack Developer </h2>
 
           <p class="hero-description">
@@ -35,7 +48,7 @@ Home | Biswas Parajuli
 
 
           <div class="hero-buttons">
-            <a href="{% url 'projects' %}" class="btn btn-primary-glass">
+            <a href="{% url 'projects' %}" class="btn btn-blink">
               <i class="bi bi-arrow-right"></i>
               View My Projects
             </a>
@@ -49,13 +62,15 @@ Home | Biswas Parajuli
       </div>
 
       <div class="col-lg-5">
-        <div class="profile-card glass">
+        <div class="profile-card glass btn-blink">
           <div class="profile-top">
             <div class="profile-info">
               <div class="avatar"> BP </div>
 
-              <div>
-                <h3> Biswas Parajuli </h3>
+              <div class="d-block">
+                <h3>
+                  <spanp class="animated-name" id="animated-name">Biswas Parajuli</span>
+                </h3>
                 <span> Full Stack Developer </span>
               </div>
             </div>
@@ -204,5 +219,5 @@ Home | Biswas Parajuli
   </div>
 </section>
 
-
+<script src="../static/js/writing.js"></script>
 {% endblock %}

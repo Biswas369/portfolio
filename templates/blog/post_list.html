@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Blog Management{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <a href="{% url 'projects' %}">Projects</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current"><i class="bi bi-journal-richtext"></i> Blog App</span>
+  </nav>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="app-page" style="max-width: 1100px;">
+
+  <div class="app-header">
+    <div>
+      <span class="app-badge">
+        <i class="bi bi-journal-richtext"></i>
+        Blog App
+      </span>
+      <h1>Blog Management</h1>
+      <p>Create, search and manage your blog posts.</p>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <a href="{% url 'blog:post_create' %}" class="todo-add-btn">
+        <i class="bi bi-plus-lg"></i>
+        Create Blog
+      </a>
+    </div>
+  </div>
+
+  <form method="GET" class="glass blog-toolbar">
+    <div class="search-wrap">
+      <i class="bi bi-search"></i>
+      <input type="search" name="q" value="{{ query }}" placeholder="Search title, author or content...">
+    </div>
+
+    <select name="category">
+      <option value="">All categories</option>
+      {% for item in categories %}
+      <option value="{{ item }}" {% if category == item %}selected{% endif %}>{{ item }}</option>
+      {% endfor %}
+    </select>
+
+    <button type="submit" class="todo-add-btn">
+      <i class="bi bi-search"></i>
+      Search
+    </button>
+    <a href="{% url 'blog:post_list' %}" class="todo-cancel-btn">
+      <i class="bi bi-arrow-clockwise"></i>
+      Clear
+    </a>
+  </form>
+
+  {% if posts %}
+  <div class="blog-grid">
+    {% for post in posts %}
+    <article class="glass blog-card">
+      <a href="{% url 'blog:post_detail' post.pk %}" class="blog-card-link">
+        <div class="blog-card-cover">
+          {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title }}">
+          {% else %}
+          <div class="blog-card-cover-fallback blog-cover-{{ post.cover_variant }}">
+            {% if post.cover_variant == 0 %}
+            <i class="bi bi-code-slash"></i>
+            {% elif post.cover_variant == 1 %}
+            <i class="bi bi-palette"></i>
+            {% elif post.cover_variant == 2 %}
+            <i class="bi bi-cpu"></i>
+            {% elif post.cover_variant == 3 %}
+            <i class="bi bi-globe2"></i>
+            {% elif post.cover_variant == 4 %}
+            <i class="bi bi-lightning-charge"></i>
+            {% else %}
+            <i class="bi bi-journal-richtext"></i>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="blog-card-body">
+          <span class="blog-card-cat">
+            <i class="bi bi-tag"></i>
+            {{ post.category }}
+          </span>
+
+          <h3>{{ post.title }}</h3>
+
+          <p class="blog-card-excerpt">
+            {{ post.content|truncatewords:22 }}
+          </p>
+
+          <div class="blog-card-meta">
+            <span>
+              <i class="bi bi-person"></i>
+              {{ post.author }}
+            </span>
+            <span>
+              <i class="bi bi-calendar3"></i>
+              {{ post.created_date|date:"M d, Y" }}
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <div class="blog-card-actions" style="padding: 0 18px 16px;">
+        <a href="{% url 'blog:post_detail' post.pk %}" class="todo-action edit" title="View">
+          <i class="bi bi-eye"></i>
+        </a>
+        <a href="{% url 'blog:post_update' post.pk %}" class="todo-action edit" title="Edit">
+          <i class="bi bi-pencil"></i>
+        </a>
+        <button type="button" class="todo-action delete"
+          data-delete-url="{% url 'blog:post_delete' post.pk %}"
+          data-item-name="{{ post.title }}"
+          data-item-type="Blog Post"
+          title="Delete">
+          <i class="bi bi-trash3"></i>
+        </button>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="glass todo-empty">
+    <div class="todo-empty-icon">
+      <i class="bi bi-journal-x"></i>
+    </div>
+    <h3>No blog posts found</h3>
+    <p>Create your first post or adjust your search filters.</p>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+{% block modals %}
+{% include "includes/delete_modal.html" %}
+{% endblock %}

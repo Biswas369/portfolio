@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Student Management{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <a href="{% url 'projects' %}">Projects</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current"><i class="bi bi-people"></i> Students App</span>
+  </nav>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="app-page" style="max-width: 1100px;">
+
+  <div class="app-header">
+    <div>
+      <span class="app-badge">
+        <i class="bi bi-people"></i>
+        Students App
+      </span>
+      <h1>Student Management</h1>
+      <p>Search, add and manage student records.</p>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <a href="{% url 'students:student_create' %}" class="todo-add-btn">
+        <i class="bi bi-plus-lg"></i>
+        Add Student
+      </a>
+    </div>
+  </div>
+
+  <form method="GET" class="glass blog-toolbar">
+    <div class="search-wrap">
+      <i class="bi bi-search"></i>
+      <input type="search" name="q" value="{{ query }}"
+        placeholder="Search name, ID, email, phone or course...">
+    </div>
+
+    <button type="submit" class="todo-add-btn">
+      <i class="bi bi-search"></i>
+      
+    </button>
+    <a href="{% url 'students:student_list' %}" class="todo-cancel-btn btn-danger">
+      <i class="bi bi-arrow-clockwise"></i>
+      
+    </a>
+  </form>
+
+  <div class="glass students-panel">
+    <div class="students-panel-head">
+      <h2>
+        <i class="bi bi-people"></i>
+        Students
+      </h2>
+      <span class="count">
+        {{ students|length }} student{{ students|length|pluralize }}
+      </span>
+    </div>
+
+    <div class="students-table-wrap">
+      <table class="students-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+          <tr class="student-row"
+            data-name="{{ student.name }}"
+            data-student-id="{{ student.student_id }}"
+            data-email="{{ student.email }}"
+            data-phone="{{ student.phone }}"
+            data-age="{{ student.age }}"
+            data-course="{{ student.course }}"
+            data-address="{{ student.address }}"
+            data-status="{{ student.status }}"
+            data-status-label="{{ student.get_status_display }}"
+            data-edit-url="{% url 'students:student_update' student.pk %}"
+            data-profile-delete-url="{% url 'students:student_delete' student.pk %}">
+            <td class="col-num">{{ forloop.counter }}</td>
+            <td class="col-id">{{ student.student_id }}</td>
+            <td class="col-name">
+              {{ student.name }}
+              {% if student.address %}
+              <small>{{ student.address|truncatechars:28 }}</small>
+              {% endif %}
+            </td>
+            <td>
+              <span class="with-icon">
+                <i class="bi bi-envelope"></i>
+                {{ student.email }}
+              </span>
+            </td>
+            <td>
+              {% if student.phone %}
+              <span class="with-icon">
+                <i class="bi bi-telephone"></i>
+                {{ student.phone }}
+              </span>
+              {% else %}
+              <span style="color: var(--muted);">—</span>
+              {% endif %}
+            </td>
+            <td>{{ student.age }}</td>
+            <td>
+              <span class="course-badge">{{ student.course }}</span>
+            </td>
+            <td>
+              <span class="status-badge {{ student.status }}">
+                <span class="dot"></span>
+                {{ student.get_status_display }}
+              </span>
+            </td>
+            <td class="actions-cell">
+              <div class="todo-actions">
+                <a href="{% url 'students:student_update' student.pk %}"
+                  class="todo-action edit" title="Edit">
+                  <i class="bi bi-pencil"></i>
+                </a>
+                <button type="button" class="todo-action delete"
+                  data-delete-url="{% url 'students:student_delete' student.pk %}"
+                  data-item-name="{{ student.name }}"
+                  data-item-type="Student"
+                  title="Delete">
+                  <i class="bi bi-trash3"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="9">
+              <div class="todo-empty" style="margin: 12px;">
+                <div class="todo-empty-icon">
+                  <i class="bi bi-people"></i>
+                </div>
+                <h3>No students found</h3>
+                <p>Add your first student or clear the search.</p>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block modals %}
+{% include "includes/delete_modal.html" %}
+{% include "includes/student_profile_modal.html" %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/student_profile.js' %}"></script>
+{% endblock %}

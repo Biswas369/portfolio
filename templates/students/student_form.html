@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <a href="{% url 'projects' %}">Projects</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <a href="{% url 'students:student_list' %}">Students App</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current">{{ title }}</span>
+  </nav>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="app-page">
+
+  <div class="app-header">
+    <div>
+      <span class="app-badge">
+        <i class="bi bi-people"></i>
+        Students App
+      </span>
+      <h1>{{ title }}</h1>
+      <p>Enter student details and save the record.</p>
+    </div>
+  </div>
+
+  <div class="glass todo-add-card app-form-card">
+    <div class="todo-form-title">
+      <i class="bi bi-person-plus"></i>
+      {{ title }}
+    </div>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      {% for field in form %}
+      <div class="app-field">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% for error in field.errors %}
+        <p class="app-field-error">{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endfor %}
+
+      {{ form.non_field_errors }}
+
+      <div class="app-form-actions">
+        <button type="submit" class="todo-add-btn">
+          <i class="bi bi-check-lg"></i>
+          Save Student
+        </button>
+        <a href="{% url 'students:student_list' %}" class="todo-cancel-btn">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

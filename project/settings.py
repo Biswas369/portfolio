@@ -44,11 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 GENERATE_APPS = [
   'pages',
   'todo',
+  'students',
+  'blog',
 ]
 
 INSTALLED_APPS += GENERATE_APPS
@@ -142,3 +145,8 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+# Media (blog images)
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+

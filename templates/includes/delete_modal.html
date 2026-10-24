@@ -1,0 +1,62 @@
+<div class="delete-modal-overlay" id="deleteModal" aria-hidden="true">
+  <div class="delete-modal" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+
+    <button type="button" class="delete-modal-close" id="deleteModalClose" aria-label="Close">
+      &times;
+    </button>
+
+    <div class="delete-modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+        stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 6h18" />
+        <path d="M8 6V4h8v2" />
+        <path d="m19 6-1 14H6L5 6" />
+        <path d="M10 11v5M14 11v5" />
+      </svg>
+    </div>
+
+    <h2 id="deleteModalTitle">
+      Delete <span id="deleteItemType">Item</span>?
+    </h2>
+
+    <p class="delete-modal-description">
+      Are you sure you want to delete
+      <strong id="deleteItemName">this item</strong>?
+      This action cannot be undone.
+    </p>
+
+    <div class="delete-modal-warning">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3 22 21H2L12 3Z" />
+        <path d="M12 9v5M12 17h.01" />
+      </svg>
+
+      <span>
+        This data will be permanently removed from the system.
+      </span>
+    </div>
+
+    <form id="deleteModalForm" method="post">
+      {% csrf_token %}
+
+      <div class="delete-modal-actions">
+        <button type="button" class="delete-cancel-btn" id="deleteModalCancel">
+          <span class="cancel-icon">&times;</span>
+          Cancel
+        </button>
+
+        <button type="submit" class="delete-confirm-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 6h18" />
+            <path d="M8 6V4h8v2" />
+            <path d="m19 6-1 14H6L5 6" />
+            <path d="M10 11v5M14 11v5" />
+          </svg>
+          Delete
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

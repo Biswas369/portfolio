@@ -6,6 +6,17 @@ Projects | Biswas Parajuli
 {% endblock %}
 
 
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current">Projects</span>
+  </nav>
+</div>
+{% endblock %}
+
+
 {% block content %}
 
 
@@ -15,20 +26,11 @@ Projects | Biswas Parajuli
 
 
     <div class="page-title glass">
-
-      <span>
-        MY WORK
-      </span>
-
       <h1>
-        Projects
+        <spanp class="animated-name " id="animated-name">My Projects</span>
       </h1>
-
-      <p>
-        Some of the projects and applications
-        I have worked on.
-      </p>
-
+      <span class="typing-text" data-text="Some of the projects and applications
+        I have worked on."></span><span class="typing-cursor">|</span>
     </div>
 
 
@@ -58,7 +60,7 @@ Projects | Biswas Parajuli
 
 
             <h2>
-              Ecommerce Platform
+              <spanp class="animated-name text-dark">Ecommerce Platform</span>
             </h2>
 
 
@@ -104,13 +106,10 @@ Projects | Biswas Parajuli
               </a>
 
 
-              <a href="#">
-
-                Live Demo
-
+              <span class="btn text-white btn-blink">
+                Open Project
                 <i class="bi bi-arrow-up-right"></i>
-
-              </a>
+              </span>
 
             </div>
 
@@ -146,7 +145,7 @@ Projects | Biswas Parajuli
 
 
             <h2>
-              EduReach
+              <spanp class="animated-name text-dark">EduReach</span>
             </h2>
 
 
@@ -192,13 +191,13 @@ Projects | Biswas Parajuli
               </a>
 
 
-              <a href="#">
-
+              <a href="#" class="btn text-white btn-blink">
                 View Project
-
                 <i class="bi bi-arrow-up-right"></i>
-
               </a>
+
+
+
 
             </div>
 
@@ -234,7 +233,7 @@ Projects | Biswas Parajuli
 
 
             <h2>
-              MeroNote
+              <spanp class="animated-name text-dark">Mero Note</span>
             </h2>
 
 
@@ -275,12 +274,9 @@ Projects | Biswas Parajuli
               </a>
 
 
-              <a href="#">
-
+              <a href="#" class="btn text-white btn-blink">
                 Live Demo
-
                 <i class="bi bi-arrow-up-right"></i>
-
               </a>
 
             </div>
@@ -315,9 +311,8 @@ Projects | Biswas Parajuli
               EXAM SYSTEM
             </span>
 
-
             <h2>
-              Online Quiz System
+              <spanp class="animated-name text-dark">Online Quiz System</span>
             </h2>
 
 
@@ -359,13 +354,11 @@ Projects | Biswas Parajuli
               </a>
 
 
-              <a href="#">
-
+              <a href="#" class="btn text-white btn-blink">
                 View Project
-
                 <i class="bi bi-arrow-up-right"></i>
-
               </a>
+
 
             </div>
 
@@ -399,7 +392,8 @@ Projects | Biswas Parajuli
 
 
             <h2>
-              Todo App
+
+              <spanp class="animated-name ">Todo App</span>
             </h2>
 
 
@@ -440,17 +434,187 @@ Projects | Biswas Parajuli
 
                 <i class="bi bi-check2-square"></i>
 
+
                 Todo App
+
+
 
               </span>
 
 
+              <span class="btn text-white btn-blink">
+                Open Project
+                <i class="bi bi-arrow-up-right"></i>
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <!-- PROJECT 6 -->
+
+      <a href="{% url 'blog:post_list' %}" class="text-decoration-none col-md-6">
+
+        <div class="project-card glass">
+
+
+          <div class="project-image project-purple">
+
+            <i class="bi bi-journal-richtext"></i>
+
+          </div>
+
+
+          <div class="project-content">
+
+
+            <span class="project-category">
+              CONTENT
+            </span>
+
+
+            <h2>
+              <spanp class="animated-name text-dark">Blog App</span>
+            </h2>
+
+
+            <p>
+
+              A blog management system
+              for creating, filtering,
+              editing and deleting posts
+              by category and search.
+
+            </p>
+
+
+            <div class="project-tech">
+
+              <span>
+                Django
+              </span>
+
+              <span>
+                Python
+              </span>
+
+              <span>
+                Bootstrap
+              </span>
+
+              <span>
+                SQLite
+              </span>
+
+            </div>
+
+
+            <div class="project-links">
+
               <span>
 
+                <i class="bi bi-journal-richtext"></i>
+
+                Blog App
+
+              </span>
+
+
+              <span class="btn text-white btn-blink">
                 Open Project
-
                 <i class="bi bi-arrow-up-right"></i>
+              </span>
 
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </a>
+
+
+      <!-- PROJECT 7 -->
+
+      <a href="{% url 'students:student_list' %}" class="text-decoration-none col-md-6">
+
+        <div class="project-card glass">
+
+
+          <div class="project-image project-green">
+
+            <i class="bi bi-people"></i>
+
+          </div>
+
+
+          <div class="project-content">
+
+
+            <span class="project-category">
+              MANAGEMENT
+            </span>
+
+
+
+            <h2>
+            
+              <spanp class="animated-name ">Students Management</span>
+            </h2>
+
+
+            <p>
+
+              A student management system
+              for adding, searching,
+              updating and deleting
+              student records.
+
+            </p>
+
+
+            <div class="project-tech">
+
+              <span>
+                Django
+              </span>
+
+              <span>
+                Python
+              </span>
+
+              <span>
+                Bootstrap
+              </span>
+
+              <span>
+                SQLite
+              </span>
+
+            </div>
+
+
+            <div class="project-links">
+
+              <span>
+
+                <i class="bi bi-people"></i>
+
+                Students App
+
+              </span>
+
+
+              <span class="btn text-white btn-blink">
+                Open Project
+                <i class="bi bi-arrow-up-right"></i>
               </span>
 
             </div>
@@ -469,5 +633,6 @@ Projects | Biswas Parajuli
 
 </section>
 
+<script src="../../static/js/writing.js"></script>
 
 {% endblock %}

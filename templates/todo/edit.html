@@ -1,110 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}Edit Todo{% endblock %}
 
-  <title>Edit Todo</title>
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <a href="{% url 'projects' %}">Projects</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <a href="{% url 'todo' %}">Todo App</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current">Edit Todo</span>
+  </nav>
+</div>
+{% endblock %}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    body {
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #dbeafe, #f8fafc);
-    }
+{% block content %}
+<div class="todo-page">
 
-    .card {
-      width: 90%;
-      max-width: 450px;
-      padding: 30px;
-      border-radius: 20px;
-
-      background: rgba(255, 255, 255, 0.55);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      margin-bottom: 25px;
-      color: #1e293b;
-    }
-
-    input {
-      width: 100%;
-      padding: 13px 15px;
-      border: 1px solid #cbd5e1;
-      border-radius: 12px;
-      outline: none;
-      font-size: 16px;
-      margin-bottom: 15px;
-    }
-
-    input:focus {
-      border-color: #3b82f6;
-    }
-
-    button {
-      width: 100%;
-      padding: 13px;
-      border: none;
-      border-radius: 12px;
-      background: #2563eb;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #1d4ed8;
-    }
-
-    .back {
-      display: block;
-      text-align: center;
-      margin-top: 15px;
-      color: #475569;
-      text-decoration: none;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="card">
-
-    <h1>Edit Todo</h1>
-
-    <form method="POST">
-
-      {% csrf_token %}
-
-      <input type="text" name="title" value="{{ todo.title }}" maxlength="20" required>
-
-      <button type="submit">
-        Update Todo
-      </button>
-
-    </form>
-
-    <a href="{% url 'todo' %}" class="back">
-      ← Back to Todos
-    </a>
-
+  <div class="todo-header">
+    <div>
+      <span class="todo-badge">
+        <i class="bi bi-pencil-square"></i>
+        Todo App
+      </span>
+      <h1>Edit Todo</h1>
+      <p>Update your task details.</p>
+    </div>
   </div>
 
-</body>
+  <div class="glass todo-add-card">
+    <div class="todo-form-title">
+      <i class="bi bi-pencil"></i>
+      Edit Task
+    </div>
 
-</html>
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="todo-input-group">
+        <input type="text" name="title" value="{{ todo.title }}" maxlength="20" required autofocus>
+
+        <button type="submit" class="todo-add-btn">
+          <i class="bi bi-check-lg"></i>
+          Update Todo
+        </button>
+
+        <a href="{% url 'todo' %}" class="todo-cancel-btn">
+          Cancel
+        </a>
+      </div>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

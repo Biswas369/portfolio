@@ -6,6 +6,17 @@ Contact | Biswas Parajuli
 {% endblock %}
 
 
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current">Contact</span>
+  </nav>
+</div>
+{% endblock %}
+
+
 {% block content %}
 
 
@@ -16,21 +27,14 @@ Contact | Biswas Parajuli
 
     <!-- TITLE -->
 
+
+
     <div class="page-title glass">
-
-      <span>
-        GET IN TOUCH
-      </span>
-
       <h1>
-        Contact Me
+        <spanp class="animated-name " id="animated-name">Contact Me</span>
       </h1>
-
-      <p>
-        Have a project, idea or question?
-        Feel free to reach out.
-      </p>
-
+      <span class="typing-text" data-text=" Have a project, idea or question?
+        Feel free to reach out."></span><span class="typing-cursor">|</span>
     </div>
 
 
@@ -44,12 +48,10 @@ Contact | Biswas Parajuli
         <div class="content-card glass">
 
 
-          <div class="card-label">
-            CONTACT INFO
-          </div>
 
 
-          <h2>
+
+          <h2 class="animated-name">
             Let's work together.
           </h2>
 
@@ -134,7 +136,7 @@ Contact | Biswas Parajuli
                   GitHub
                 </small>
 
-                <a href="#">
+                <a href="https://github.com/Biswas369/">
                   GitHub Profile
                 </a>
 
@@ -160,7 +162,7 @@ Contact | Biswas Parajuli
                   LinkedIn
                 </small>
 
-                <a href="#">
+                <a href="https://www.linkedin.com/in/biswas-parajuli-2a5144398">
                   LinkedIn Profile
                 </a>
 
@@ -186,14 +188,12 @@ Contact | Biswas Parajuli
         <div class="content-card glass">
 
 
-          <div class="card-label">
+          <h2 class="card-label animated-name d-block text-center mb-5">
             SEND MESSAGE
-          </div>
-
-
-          <h2>
-            Send me a message
           </h2>
+
+
+
 
 
           <form method="POST" action="{% url 'contact' %}">
@@ -248,9 +248,9 @@ Contact | Biswas Parajuli
               </div>
 
 
-              <div class="col-12">
+              <div class="col-12 d-flex justify-content-center">
 
-                <button type="submit" class="btn btn-primary-glass">
+                <button type="submit" class="btn btn-primary-glass btn-blink">
 
                   <i class="bi bi-send"></i>
 
@@ -278,5 +278,5 @@ Contact | Biswas Parajuli
 
 </section>
 
-
+<script src="../../static/js/writing.js"></script>
 {% endblock %}

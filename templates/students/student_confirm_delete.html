@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Student{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <a href="{% url 'students:student_list' %}">Students App</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current">Delete Student</span>
+  </nav>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="app-page">
+
+  <div class="app-header">
+    <div>
+      <span class="app-badge">
+        <i class="bi bi-trash3"></i>
+        Students App
+      </span>
+      <h1>Delete Student</h1>
+      <p>This action cannot be undone.</p>
+    </div>
+  </div>
+
+  <div class="glass todo-add-card app-form-card">
+    <p style="color: var(--card-text); margin-bottom: 20px;">
+      Are you sure you want to delete
+      <strong style="color: var(--heading);">{{ student.name }}</strong>
+      ({{ student.student_id }})?
+    </p>
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="app-form-actions">
+        <button type="submit" class="app-btn-danger">
+          <i class="bi bi-trash3"></i>
+          Yes, Delete
+        </button>
+        <a href="{% url 'students:student_list' %}" class="todo-cancel-btn">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

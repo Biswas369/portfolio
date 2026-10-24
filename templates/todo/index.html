@@ -5,6 +5,19 @@ Todo App
 {% endblock %}
 
 
+{% block breadcrumb %}
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="{% url 'home' %}"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <a href="{% url 'projects' %}">Projects</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current"><i class="bi bi-check2-square"></i> Todo App</span>
+  </nav>
+</div>
+{% endblock %}
+
+
 {% block content %}
 
 <div class="todo-page">
