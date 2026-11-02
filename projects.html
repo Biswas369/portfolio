@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Biswas Parajuli</title>
+  <meta name="description" content="Biswas Parajuli - Full Stack Developer portfolio.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Preloader / page-transition flags (runs before paint) -->
+  <script>
+    try {
+      var d = document.documentElement;
+      if (sessionStorage.getItem("pl")) d.classList.add("no-pl"); else d.classList.add("preloading");
+      if (sessionStorage.getItem("pt")) { d.classList.add("arriving"); sessionStorage.removeItem("pt"); }
+    } catch (e) { document.documentElement.classList.add("no-pl"); }
+  </script>
+
+  <!-- Apply saved theme before paint (no flash) -->
+  <script>
+    try { if (localStorage.getItem("portfolio-theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {}
+  </script>
+
+  <!-- Tailwind (built file). To use the Tailwind CDN instead, see README. -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/glass.css">
+</head>
+
+<body>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="pl-inner">
+      <div class="pl-logo"><i></i><b>B</b></div>
+      <div class="pl-name">Biswas Parajuli</div>
+      <div class="pl-bar"><em></em></div>
+    </div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <div class="breadcrumb-wrap">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="index.html"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current">Projects</span>
+    </nav>
+  </div>
+
+  <main class="container">
+
+<section class="inner-page">
+  <div class="container">
+
+    <div class="page-title glass">
+      <h1><span class="animated-name">My Projects</span></h1>
+      <span class="typing-text" data-text="Some of the projects and applications I have worked on."></span><span class="typing-cursor">|</span>
+    </div>
+
+    <!-- Cards are generated from the list in js/projects.js -->
+    <div class="project-grid" id="projectGrid"></div>
+
+  </div>
+</section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/effects.js"></script>
+</body>
+</html>

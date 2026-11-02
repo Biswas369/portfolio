@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Biswas Parajuli</title>
+  <meta name="description" content="Biswas Parajuli - Full Stack Developer portfolio.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Preloader / page-transition flags (runs before paint) -->
+  <script>
+    try {
+      var d = document.documentElement;
+      if (sessionStorage.getItem("pl")) d.classList.add("no-pl"); else d.classList.add("preloading");
+      if (sessionStorage.getItem("pt")) { d.classList.add("arriving"); sessionStorage.removeItem("pt"); }
+    } catch (e) { document.documentElement.classList.add("no-pl"); }
+  </script>
+
+  <!-- Apply saved theme before paint (no flash) -->
+  <script>
+    try { if (localStorage.getItem("portfolio-theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {}
+  </script>
+
+  <!-- Tailwind (built file). To use the Tailwind CDN instead, see README. -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/glass.css">
+</head>
+
+<body>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="pl-inner">
+      <div class="pl-logo"><i></i><b>B</b></div>
+      <div class="pl-name">Biswas Parajuli</div>
+      <div class="pl-bar"><em></em></div>
+    </div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <div class="breadcrumb-wrap">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <span class="crumb-current"><i class="bi bi-house-door"></i> Home</span>
+    </nav>
+  </div>
+
+  <main class="container">
+
+<section class="hero-section">
+  <div class="container">
+    <div class="flex flex-wrap items-center -mx-6 -mt-12">
+
+      <div class="w-full lg:w-7/12 px-6 mt-12">
+        <div class="hero-content">
+          <div class="availability">
+            <span class="online-dot"></span>
+            Available for work
+          </div>
+
+          <h1>
+            Hi, I'm
+            <span class="typing-text" data-text="Biswas Parajuli"></span><span class="typing-cursor">|</span>
+          </h1>
+
+          <h2>Full Stack Developer</h2>
+
+          <p class="hero-description">
+            I build modern web applications using Python, Django, React and modern web technologies.
+            I enjoy creating useful, clean and functional digital experiences.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="projects.html" class="btn btn-blink">
+              <i class="bi bi-arrow-right"></i>
+              View My Projects
+            </a>
+            <a href="contact.html" class="btn btn-secondary-glass">
+              <i class="bi bi-envelope"></i>
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-5/12 px-6 mt-12">
+        <div class="tilt-wrap"><div class="profile-card glass">
+          <div class="profile-top">
+            <div class="profile-info">
+              <div class="avatar-wrap"><div class="avatar"><span>BP</span><img src="assets/myImage.jpeg" alt="Biswas Parajuli" onerror="this.remove()"></div></div>
+              <div class="block">
+                <h3><span class="animated-name">Biswas Parajuli</span></h3>
+                <span>Full Stack Developer</span>
+              </div>
+            </div>
+            <div class="status">
+              <span class="status-dot"></span>
+              Online
+            </div>
+          </div>
+
+          <div class="skills-list">
+            <div class="skill">PY</div>
+            <div class="skill">DJ</div>
+            <div class="skill">RE</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">SQL</div>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-item"><strong>10+</strong><span>Projects</span></div>
+            <div class="stat-item"><strong>5+</strong><span>Technologies</span></div>
+            <div class="stat-item"><strong>1+</strong><span>Years Learning</span></div>
+          </div>
+
+          <div class="profile-quote">
+            "Code is not just a skill, it's a way to create something meaningful."
+          </div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+
+    <div class="section-heading">
+      <span>WHAT I DO</span>
+      <h2>My Skills &amp; Services</h2>
+      <p>I focus on building practical, modern and user-friendly web applications.</p>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 -mt-6">
+      <div class="w-full md:w-1/2 lg:w-1/4 px-3 mt-6">
+        <div class="feature-card glass">
+          <div class="feature-icon"><i class="bi bi-code-slash"></i></div>
+          <h3>Web Development</h3>
+          <p>Building modern frontend and backend web applications.</p>
+          <a href="about.html">Learn more →</a>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/4 px-3 mt-6">
+        <div class="feature-card glass">
+          <div class="feature-icon"><i class="bi bi-database"></i></div>
+          <h3>Database</h3>
+          <p>Designing structured and efficient database solutions.</p>
+          <a href="about.html">Learn more →</a>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/4 px-3 mt-6">
+        <div class="feature-card glass">
+          <div class="feature-icon"><i class="bi bi-palette"></i></div>
+          <h3>UI / UX</h3>
+          <p>Creating clean and user-friendly digital interfaces.</p>
+          <a href="about.html">Learn more →</a>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 lg:w-1/4 px-3 mt-6">
+        <div class="feature-card glass">
+          <div class="feature-icon"><i class="bi bi-lightbulb"></i></div>
+          <h3>Problem Solving</h3>
+          <p>Turning technical problems into practical solutions.</p>
+          <a href="contact.html">Let's Talk →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="section-heading">
+      <span>PROFICIENCY</span>
+      <h2>How Comfortable I Am</h2>
+      <p>My current level with the tools I use most. Always improving.</p>
+    </div>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#22c7ee"/><stop offset=".55" stop-color="#7c5cff"/><stop offset="1" stop-color="#ff5fa8"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <div class="rings-grid">
+      <div class="ring-card glass" data-level="85"><div class="ring-box"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><div class="ring-val"><span data-num>0</span><small>%</small></div></div><h3>Python</h3></div>
+      <div class="ring-card glass" data-level="80"><div class="ring-box"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><div class="ring-val"><span data-num>0</span><small>%</small></div></div><h3>Django</h3></div>
+      <div class="ring-card glass" data-level="70"><div class="ring-box"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><div class="ring-val"><span data-num>0</span><small>%</small></div></div><h3>JavaScript</h3></div>
+      <div class="ring-card glass" data-level="60"><div class="ring-box"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><div class="ring-val"><span data-num>0</span><small>%</small></div></div><h3>React</h3></div>
+      <div class="ring-card glass" data-level="90"><div class="ring-box"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><div class="ring-val"><span data-num>0</span><small>%</small></div></div><h3>HTML / CSS</h3></div>
+      <div class="ring-card glass" data-level="75"><div class="ring-box"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" cx="60" cy="60" r="52"/></svg><div class="ring-val"><span data-num>0</span><small>%</small></div></div><h3>SQL</h3></div>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/effects.js"></script>
+</body>
+</html>

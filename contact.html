@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Biswas Parajuli</title>
+  <meta name="description" content="Biswas Parajuli - Full Stack Developer portfolio.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Preloader / page-transition flags (runs before paint) -->
+  <script>
+    try {
+      var d = document.documentElement;
+      if (sessionStorage.getItem("pl")) d.classList.add("no-pl"); else d.classList.add("preloading");
+      if (sessionStorage.getItem("pt")) { d.classList.add("arriving"); sessionStorage.removeItem("pt"); }
+    } catch (e) { document.documentElement.classList.add("no-pl"); }
+  </script>
+
+  <!-- Apply saved theme before paint (no flash) -->
+  <script>
+    try { if (localStorage.getItem("portfolio-theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {}
+  </script>
+
+  <!-- Tailwind (built file). To use the Tailwind CDN instead, see README. -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/glass.css">
+</head>
+
+<body>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="pl-inner">
+      <div class="pl-logo"><i></i><b>B</b></div>
+      <div class="pl-name">Biswas Parajuli</div>
+      <div class="pl-bar"><em></em></div>
+    </div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <div class="breadcrumb-wrap">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <a href="index.html"><i class="bi bi-house-door"></i> Home</a>
+    <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+    <span class="crumb-current">Contact</span>
+    </nav>
+  </div>
+
+  <main class="container">
+
+<section class="inner-page">
+  <div class="container">
+
+    <div class="page-title glass">
+      <h1><span class="animated-name">Contact Me</span></h1>
+      <span class="typing-text" data-text="Have a project, idea or question? Feel free to reach out."></span><span class="typing-cursor">|</span>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 -mt-6 !mt-2">
+
+      <div class="w-full lg:w-5/12 px-3 mt-6">
+        <div class="content-card glass">
+          <h2 class="animated-name">Let's work together.</h2>
+          <p>If you have an idea, project or opportunity, you can contact me through the information below.</p>
+
+          <div class="contact-list">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+            <div><small>Email</small><a href="mailto:hello@example.com">hello@example.com</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+            <div><small>Location</small><strong>Nepal</strong></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-github"></i></div>
+            <div><small>GitHub</small><a href="https://github.com/Biswas369/" target="_blank" rel="noopener">GitHub Profile</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-linkedin"></i></div>
+            <div><small>LinkedIn</small><a href="https://www.linkedin.com/in/biswas-parajuli-2a5144398" target="_blank" rel="noopener">LinkedIn Profile</a></div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-7/12 px-3 mt-6">
+        <div class="content-card glass">
+          <h2 class="card-label animated-name !block text-center !mb-12">SEND MESSAGE</h2>
+
+          <form id="contactForm" novalidate>
+            <div class="flex flex-wrap -mx-2 -mt-4">
+              <div class="w-full md:w-1/2 px-2 mt-4">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+              </div>
+              <div class="w-full md:w-1/2 px-2 mt-4">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+              </div>
+              <div class="w-full px-2 mt-4">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
+              </div>
+              <div class="w-full px-2 mt-4">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+              </div>
+              <div class="w-full px-2 mt-4 flex justify-center">
+                <button type="submit" class="btn btn-primary-glass btn-blink">
+                  <i class="bi bi-send"></i>
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/effects.js"></script>
+</body>
+</html>

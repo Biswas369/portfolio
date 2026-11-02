@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Biswas Parajuli</title>
+  <meta name="description" content="Biswas Parajuli - Full Stack Developer portfolio.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Preloader / page-transition flags (runs before paint) -->
+  <script>
+    try {
+      var d = document.documentElement;
+      if (sessionStorage.getItem("pl")) d.classList.add("no-pl"); else d.classList.add("preloading");
+      if (sessionStorage.getItem("pt")) { d.classList.add("arriving"); sessionStorage.removeItem("pt"); }
+    } catch (e) { document.documentElement.classList.add("no-pl"); }
+  </script>
+
+  <!-- Apply saved theme before paint (no flash) -->
+  <script>
+    try { if (localStorage.getItem("portfolio-theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) { }
+  </script>
+
+  <!-- Tailwind (built file). To use the Tailwind CDN instead, see README. -->
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/glass.css">
+</head>
+
+<body>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="pl-inner">
+      <div class="pl-logo"><i></i><b>B</b></div>
+      <div class="pl-name">Biswas Parajuli</div>
+      <div class="pl-bar"><em></em></div>
+    </div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <div class="breadcrumb-wrap">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <a href="index.html"><i class="bi bi-house-door"></i> Home</a>
+      <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+      <span class="crumb-current">About</span>
+    </nav>
+  </div>
+
+  <main class="container">
+
+    <section class="inner-page">
+      <div class="container">
+
+        <div class="page-title glass">
+          <h1><span class="animated-name">About Me</span></h1>
+          <span class="typing-text" data-text="Get to know me, my skills and my journey as a developer."></span><span
+            class="typing-cursor">|</span>
+        </div>
+
+        <div class="flex flex-wrap -mx-3 -mt-6 !mt-2">
+
+          <div class="w-full lg:w-7/12 px-3 mt-6">
+            <div class="content-card glass">
+              <div class="card-label">WHO I AM</div>
+              <h2>
+                <span class="typing-text" data-text="I build things for the web."></span><span
+                  class="typing-cursor">|</span>
+              </h2>
+              <p>I'm Biswas Parajuli, a Full Stack Developer interested in creating modern and useful web applications.
+              </p>
+              <p>My main backend interest is Python and Django, while I also work with frontend technologies such as
+                React, HTML, CSS and JavaScript.</p>
+              <p>I enjoy learning new technologies, solving problems and turning ideas into working applications.</p>
+              <a href="contact.html" class="btn btn-blink mt-4">
+                <i class="bi bi-chat"></i>
+                Let's Talk
+              </a>
+            </div>
+          </div>
+
+          <div class="w-full lg:w-5/12 px-3 mt-6">
+            <div class="content-card glass">
+              <div class="photo-frame"><span>BP</span><img src="assets/myImage.jpeg" alt="Biswas Parajuli"
+                  onerror="this.remove()"></div>
+              <div class="card-label text-center" style="text-align:center">QUICK INFO</div>
+              <div class="info-list">
+                <div class="info-item">
+                  <i class="bi bi-person"></i>
+                  <div><small>Name</small><strong>Biswas Parajuli</strong></div>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-code-slash"></i>
+                  <div><small>Role</small><strong>Full Stack Developer</strong></div>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-terminal"></i>
+                  <div><small>Backend</small><strong>Python / Django</strong></div>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-window"></i>
+                  <div><small>Frontend</small><strong>React / HTML / CSS / JS</strong></div>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-database"></i>
+                  <div><small>Database</small><strong>MySQL / SQLite</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-card glass skills-section">
+          <div class="card-label">TECHNOLOGIES</div>
+          <h2>My Technical Skills</h2>
+          <div class="technology-grid">
+            <div class="technology glass"><i class="bi bi-filetype-py"></i>Python</div>
+            <div class="technology glass"><i class="bi bi-server"></i>Django</div>
+            <div class="technology glass"><i class="bi bi-filetype-js"></i>JavaScript</div>
+            <div class="technology glass"><i class="bi bi-bootstrap"></i>Bootstrap</div>
+            <div class="technology glass"><i class="bi bi-code-square"></i>React</div>
+            <div class="technology glass"><i class="bi bi-filetype-html"></i>HTML</div>
+            <div class="technology glass"><i class="bi bi-filetype-css"></i>CSS</div>
+            <div class="technology glass"><i class="bi bi-database"></i>MySQL</div>
+            <div class="technology glass"><i class="bi bi-filetype-php"></i>PHP</div>
+            <div class="technology glass"><i class="bi bi-git"></i>Git</div>
+          </div>
+        </div>
+
+        <div class="content-card glass skills-section">
+          <div class="card-label">PROFICIENCY</div>
+          <h2>Skill Levels</h2>
+          <div class="skill-bars">
+            <div class="sbar" data-level="85">
+              <div class="sbar-head"><span>Python</span><em><span data-num>0</span>%</em></div>
+              <div class="sbar-track">
+                <div class="sbar-fill"></div>
+              </div>
+            </div>
+            <div class="sbar" data-level="80">
+              <div class="sbar-head"><span>Django</span><em><span data-num>0</span>%</em></div>
+              <div class="sbar-track">
+                <div class="sbar-fill"></div>
+              </div>
+            </div>
+            <div class="sbar" data-level="70">
+              <div class="sbar-head"><span>JavaScript</span><em><span data-num>0</span>%</em></div>
+              <div class="sbar-track">
+                <div class="sbar-fill"></div>
+              </div>
+            </div>
+            <div class="sbar" data-level="60">
+              <div class="sbar-head"><span>React</span><em><span data-num>0</span>%</em></div>
+              <div class="sbar-track">
+                <div class="sbar-fill"></div>
+              </div>
+            </div>
+            <div class="sbar" data-level="90">
+              <div class="sbar-head"><span>HTML &amp; CSS</span><em><span data-num>0</span>%</em></div>
+              <div class="sbar-track">
+                <div class="sbar-fill"></div>
+              </div>
+            </div>
+            <div class="sbar" data-level="75">
+              <div class="sbar-head"><span>MySQL / SQL</span><em><span data-num>0</span>%</em></div>
+              <div class="sbar-track">
+                <div class="sbar-fill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/effects.js"></script>
+</body>
+
+</html>
